@@ -1,10 +1,9 @@
 import scrapy
 
-
 class YPSpider(scrapy.Spider):
     name = "yellowpages"
     start_urls = [
-        'https://www.yellowpages.com/search?search_terms=Plumbers&geo_location_terms=Chicago%2C+IL'
+        'https://www.yellowpages.com/search?search_terms=pet+groomers&geo_location_terms=Chicago%2C+IL'
     ]
 
     def parse(self, response):
@@ -18,4 +17,10 @@ class YPSpider(scrapy.Spider):
 		'POSTAL_CODE': plumber.css('div[class="info-section info-primary"] p[class="adr"] span[itemprop="postalCode"]::text').extract(),
 		'PHONE': plumber.css('div[class="info-section info-primary"] div[class="phones phone primary"]::text').extract()
             }
+
+	
+        next_page = response.css('div[class="pagination"] ul li a[class="next ajax-page"]::attr(href)').extract_first()
+        if next_page is not None:
+            next_page = response.urljoin(next_page)
+            yield scrapy.Request(next_page, callback=self.parse)
 
