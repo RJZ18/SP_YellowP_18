@@ -1,6 +1,19 @@
 https://www.yellowpages.com/search?search_terms=Plumbers&geo_location_terms=Chicago%2C+IL (Firefox)
 https://www.yellowpages.com/search?search_terms=Plumbers&geo_location_terms=Chicago%2C+IL (Chromium)
 
+*******************************FOOTER PAGE*******************************************************
+div class="pagination"
+	<p
+		<span (number of results)
+	<ul
+		<li
+			<span class="disabled" (1)
+		<li
+			<a href="/search?search_terms=Plumbers&geo_location_terms=Chicago%2C%20IL&page=2"
+		<li
+			<a class="next ajax-page"
+
+*******************************MAIN PAGE*********************************************************
 <div class="search-results organic"
 	<div class="result" id="lid-505015022"
 		<div class="srp-listing clickable-area mdm"

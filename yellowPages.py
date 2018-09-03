@@ -1,9 +1,11 @@
 import scrapy
 
+searchTerm='flower+shops&geo_location_terms=Chicago%2C+IL'
+
 class YPSpider(scrapy.Spider):
     name = "yellowpages"
     start_urls = [
-        'https://www.yellowpages.com/search?search_terms=pet+groomers&geo_location_terms=Chicago%2C+IL'
+        'https://www.yellowpages.com/search?search_terms={}'.format(searchTerm)
     ]
 
     def parse(self, response):
